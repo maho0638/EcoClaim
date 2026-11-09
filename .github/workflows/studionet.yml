@@ -1,13 +1,13 @@
-name: EcoClaim public Studionet proof
+name: EcoClaim v2 public Studionet proof
 on:
-  # Manual only to avoid repeat testnet transaction fees on pushes.
+  # Manual only: requires explicit permission for testnet transactions.
   workflow_dispatch:
 permissions:
   contents: read
 jobs:
   live:
     runs-on: ubuntu-latest
-    timeout-minutes: 48
+    timeout-minutes: 45
     steps:
       - uses: actions/checkout@v4
       - uses: actions/setup-python@v5

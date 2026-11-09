@@ -1,37 +1,37 @@
-"""Public Studionet proof: deterministic no-evidence and AI comparison cases."""
+"""Manual public Studionet proof for EcoClaim v2 (new implementation)."""
 import json
 from gltest import get_contract_factory
 from gltest.assertions import tx_execution_succeeded
 
 
-def confirmed(call, name):
+def confirmed(call, tag):
     receipt = call.transact(consensus_max_rotations=4, wait_interval=10000, wait_retries=50)
-    assert tx_execution_succeeded(receipt), f"{name} failed: {receipt.get('hash', '')}"
-    print(f"{name}_TX={receipt.get('hash', '')}", flush=True)
+    assert tx_execution_succeeded(receipt), f"{tag}: {receipt.get('hash', '')}"
+    print(f"{tag}_TX={receipt.get('hash', '')}", flush=True)
 
 
-def test_real_studionet(default_account):
+def test_live_quantitative_claim(default_account):
     c = get_contract_factory("EcoClaim").deploy(
-        account=default_account, consensus_max_rotations=4)
+        account=default_account, consensus_max_rotations=4,
+    )
     address = str(c.address)
     assert address.startswith("0x") and len(address) == 42
-    print(f"ECOCLAIM_EXPLORER=https://explorer-studio.genlayer.com/address/{address}", flush=True)
-
+    print(f"ECOCLAIM_V2_EXPLORER=https://explorer-studio.genlayer.com/address/{address}", flush=True)
     confirmed(c.register(args=[
-        "public-eco-empty-001", "Plastic container",
-        "All of our packaging is made using recycled material.",
-        "Current packaging for the product in 2026", ""
-    ]), "ECOCLAIM_REGISTER_NO_EVIDENCE")
-    confirmed(c.check(args=["public-eco-empty-001"]), "ECOCLAIM_CHECK_NO_EVIDENCE")
-    assert json.loads(c.get_claim(args=["public-eco-empty-001"]).call())["finding"] == "NO_EVIDENCE"
-
-    confirmed(c.register(args=[
-        "public-eco-text-002", "Recycled notebook",
-        "This notebook contains 50 percent recycled paper by weight.",
-        "Paper composition of the notebook in its 2026 batch",
-        "The submitted supplier summary reports 50 percent recycled paper by weight for the notebook in 2026."
-    ]), "ECOCLAIM_REGISTER_TEXT")
-    confirmed(c.check(args=["public-eco-text-002"]), "ECOCLAIM_CHECK_AI")
-    result = json.loads(c.get_claim(args=["public-eco-text-002"]).call())
-    assert result["finding"] in {"CONSISTENT", "CONFLICTING", "UNCLEAR"}
-    print(f"ECOCLAIM_FINAL_FINDING={result['finding']}", flush=True)
+        "public-reduction-001", "Recycled packaging line",
+        "CO2E_KG", "2025", "2026", 1000, 750,
+        "This packaging line reduced CO2e emissions by 25 percent from 2025 to 2026.",
+        "Caller-reported totals based on equal units of packaging output.",
+    ]), "ECOCLAIM_V2_REGISTER")
+    initial = json.loads(c.get_report(args=["public-reduction-001"]).call())
+    assert initial["observed_reduction_basis_points"] == 2500
+    assert initial["outcome"] == "PENDING"
+    confirmed(c.audit_percentage(args=["public-reduction-001"]), "ECOCLAIM_V2_AUDIT")
+    final = json.loads(c.get_report(args=["public-reduction-001"]).call())
+    p = final["extracted_claim_percent"]
+    expected = ("UNQUANTIFIED" if p == -1 else
+                "OVERSTATED_VS_INPUTS" if p * 100 > 2500 else
+                "NOT_OVERSTATED_VS_INPUTS")
+    assert final["outcome"] == expected
+    print(f"ECOCLAIM_V2_FINAL_PERCENT={p}", flush=True)
+    print(f"ECOCLAIM_V2_OUTCOME={expected}", flush=True)
