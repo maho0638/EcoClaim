@@ -38,7 +38,7 @@ python -m pytest -q tests/test_direct_sdk.py
 genvm-lint check contracts/EcoClaim.py
 ```
 
-**Evidence:** Previous EcoClaim v1 Studionet receipts are historical; they are **not** proof for this new source. This version needs a new contract deployment and Explorer link before Portal submission.
+**Evidence:** EcoClaim v2 has now been deployed and verified on public Studionet with its own Explorer address and two successful numerical audit cases. Old v1 receipts are historical and are not used as v2 evidence.
 
 ## Verified public Studionet proof — EcoClaim v2
 
