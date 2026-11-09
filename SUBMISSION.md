@@ -10,4 +10,27 @@ EcoClaim is a GenLayer Intelligent Contract that compares environmental marketin
 
 **Repository:** https://github.com/maho0638/EcoClaim
 
-**Proof status:** Only use an Explorer address after an actual successful finalized public Studionet deployment.
+**Proof status:** Real Studionet deployment and state read-back verified; exact links below.
+
+## Verified public Studionet deployment — 9 November 2026
+
+**Mandatory evidence — GitHub Repository**
+https://github.com/maho0638/EcoClaim
+
+**Mandatory evidence — GenLayer Explorer Contract**
+https://explorer-studio.genlayer.com/address/0x34Fe69D0b9fd80Bceb3379E3e3A8Bf8AE58b82Fd
+
+**Live end-to-end CI evidence**
+https://github.com/maho0638/EcoClaim/actions/runs/42606522178
+
+**Successful SDK and GenVM lint checks**
+https://github.com/maho0638/EcoClaim/actions/runs/42606206539
+
+**Observed on-chain result:** `NO_EVIDENCE and CONSISTENT`
+
+- No-evidence registration transaction: `0x358f8e2b3f15f90a19f149d8fe6070d839255d9133783bd66560be00fb7963d1`
+- No-evidence review transaction: `0x2a7f1db6767fb60946b63732361a0ad9c7bc36b91931e938fd6dfb05679ad46e`
+- Evidence registration transaction: `0xb156767e63d6424167e4057950fc238d013587da6c9592092deba15ad5fc10ad`
+- AI review transaction: `0xa2ac3cc95e936537cd6a66420238dc630b55f7a92984c35a14af08b2dac944b2`
+
+Only public Studionet was used, not mainnet. No Portal submission is performed by this repository.

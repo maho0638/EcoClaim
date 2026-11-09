@@ -22,6 +22,13 @@ python -m pytest -q tests/test_direct_sdk.py
 genvm-lint check contracts/EcoClaim.py
 ```
 
-The workflow `.github/workflows/checks.yml` runs Direct SDK + GenVM lint tests; optional manual public Studionet proof is in `.github/workflows/studionet.yml`. Direct tests alone do not prove finalized public consensus.
+The workflow `.github/workflows/checks.yml` runs Direct SDK + GenVM lint tests; optional manual public Studionet proof is in `.github/workflows/studionet.yml`. Public Studionet deployment and transaction state read-back now verified. These tests are distinct from in-process Direct SDK checks.
 
 See [SUBMISSION.md](SUBMISSION.md) for the GenLayer Portal narrative and evidence links.
+
+## Public Studionet proof
+
+- [Contract on GenLayer Explorer](https://explorer-studio.genlayer.com/address/0x34Fe69D0b9fd80Bceb3379E3e3A8Bf8AE58b82Fd)
+- [Successful deployment, writes, and read-back tests](https://github.com/maho0638/EcoClaim/actions/runs/42606522178)
+- Verified result: `NO_EVIDENCE and CONSISTENT`
+- Mainnet deployment: **not performed**
