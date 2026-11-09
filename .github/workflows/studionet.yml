@@ -1,14 +1,11 @@
 name: EcoClaim v2 public Studionet proof
 on:
-  push:
-    branches: [main]
+  # Manual only. Never auto-spend test GEN on documentation commits.
   workflow_dispatch:
 permissions:
   contents: read
 jobs:
   live:
-    # A single authorized push; future documentation changes cannot auto-spend test GEN.
-    if: ${{ github.event_name == 'workflow_dispatch' || (github.event_name == 'push' && github.event.head_commit.message == 'RUN_ONCE_ECOCLAIM_V2_STUDIONET_PROOF') }}
     runs-on: ubuntu-latest
     timeout-minutes: 65
     steps:

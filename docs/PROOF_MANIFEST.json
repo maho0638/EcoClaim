@@ -1,0 +1,28 @@
+{
+  "project": "EcoClaim",
+  "version": 2,
+  "network": "public GenLayer Studionet",
+  "source_commit": "575cb1048844b2df99b2d4dc844bc8691a12a206",
+  "contract_address": "0x9880014774FfD413F434fd4849A87e819e4A8E35",
+  "explorer_url": "https://explorer-studio.genlayer.com/address/0x9880014774FfD413F434fd4849A87e819e4A8E35",
+  "workflow_run": "https://github.com/maho0638/EcoClaim/actions/runs/42618104339",
+  "sdk_run": "https://github.com/maho0638/EcoClaim/actions/runs/42615521793",
+  "checks": "6/6 Direct SDK PASS and GenVM lint PASS",
+  "cases": [
+    {
+      "claim_percent": 25,
+      "measured_percent": 25,
+      "result": "NOT_OVERSTATED_VS_INPUTS",
+      "register_tx": "0xc26fc8ef9c7de9464b19a43471b424b0569ed4a6d38ad75645b5f3deb66f26b7",
+      "audit_tx": "0x7c1c00c764ea0b5fe41706bee8f78a7d38067513c07bd9ff74fccf0fde215549"
+    },
+    {
+      "claim_percent": 40,
+      "measured_percent": 25,
+      "result": "OVERSTATED_VS_INPUTS",
+      "register_tx": "0x4137cd2e8bf7bc474f2714be1da8f8bedb4c2d6f568c78cd253f56ffdff66051",
+      "audit_tx": "0xa9490f23a79f3ab1e919018067dd77202df0b018b97bea22bd33c6453d00fffc"
+    }
+  ],
+  "limitations": "Caller-supplied measurements not authenticated; no environmental certification"
+}

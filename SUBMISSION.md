@@ -1,4 +1,4 @@
-# EcoClaim v2 — Portal submission draft (NOT READY)
+# EcoClaim v2 — Portal submission (verified Studionet)
 
 **Proposed category:** Developer → Intelligent Contracts
 
@@ -8,4 +8,16 @@
 
 **Repository:** https://github.com/maho0638/EcoClaim
 
-**Proof:** Real EcoClaim **v2** Explorer URL and finalized transactions required; previous v1 Explorer address is not valid evidence for this source version.
+**Proof 1 — Required GenLayer Explorer Contract:** https://explorer-studio.genlayer.com/address/0x9880014774FfD413F434fd4849A87e819e4A8E35
+
+**Proof 2 — Required GitHub Repository:** https://github.com/maho0638/EcoClaim
+
+**Proof 3 — Successful public Studionet transactions and AI consensus:** https://github.com/maho0638/EcoClaim/actions/runs/42618104339
+
+**Proof 4 — SDK tests and GenVM lint:** https://github.com/maho0638/EcoClaim/actions/runs/42615521793
+
+**Verified outcome:** 25% claimed vs 25% calculated = NOT_OVERSTATED_VS_INPUTS; 40% claimed vs 25% calculated = OVERSTATED_VS_INPUTS. Both were read back from the real v2 contract. No mainnet deployment or environmental certification is claimed.
+
+**Deployed code revision:** `575cb1048844b2df99b2d4dc844bc8691a12a206`.
+
+**Note:** Portal submission must be done by the user; no submission has been sent automatically.

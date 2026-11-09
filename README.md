@@ -39,3 +39,14 @@ genvm-lint check contracts/EcoClaim.py
 ```
 
 **Evidence:** Previous EcoClaim v1 Studionet receipts are historical; they are **not** proof for this new source. This version needs a new contract deployment and Explorer link before Portal submission.
+
+## Verified public Studionet proof — EcoClaim v2
+
+- **New deployed v2 contract:** https://explorer-studio.genlayer.com/address/0x9880014774FfD413F434fd4849A87e819e4A8E35
+- **Successful official on-chain end-to-end workflow:** https://github.com/maho0638/EcoClaim/actions/runs/42618104339
+- **SDK/GenVM tests:** https://github.com/maho0638/EcoClaim/actions/runs/42615521793 (6 Direct tests and static checks passed)
+- **Deployed source commit:** `575cb1048844b2df99b2d4dc844bc8691a12a206`
+- 25% claim: `0xc26fc8ef9c7de9464b19a43471b424b0569ed4a6d38ad75645b5f3deb66f26b7` (registration), `0x7c1c00c764ea0b5fe41706bee8f78a7d38067513c07bd9ff74fccf0fde215549` (consensus audit) → `NOT_OVERSTATED_VS_INPUTS`.
+- 40% claim with the same 25% reported reduction: `0x4137cd2e8bf7bc474f2714be1da8f8bedb4c2d6f568c78cd253f56ffdff66051` (registration), `0xa9490f23a79f3ab1e919018067dd77202df0b018b97bea22bd33c6453d00fffc` (consensus audit) → `OVERSTATED_VS_INPUTS`.
+
+The results reflect **only self-reported numbers**, not independently certified environmental impact. Mainnet was not used.
